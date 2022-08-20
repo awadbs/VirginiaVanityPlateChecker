@@ -28,3 +28,6 @@ Now you're ready to run the script!
 python main.py
 ```
 
+
+![Screenshot of website](ripImissHimEveryday.jpg)
+
