@@ -83,7 +83,7 @@ def Go_Through_Textfile(file_name):
         for line in tqdm(f, total=num_lines):
             checked = Request_DMV(line)
             with open("output.txt", "a") as myfile:
-                my_plate = line + " - " + checked + "\n"
+                my_plate = line.rstrip() + " - " + checked + "\n"
                 myfile.write(my_plate)
 
 
