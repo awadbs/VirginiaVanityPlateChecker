@@ -1,8 +1,10 @@
 # VirginiaVanityPlateChecker
 ![Screenshot of website](website.png)
 
-[Virginia DMV](https://www.dmv.virginia.gov/dmvnet/plate_purchase/select_plate.asp) allows you to create custom license plates with names of your choosing. But the problem is that the website is slow, and becomes tedious to check if your requested plate is available or not. 
-This python script will allow you to check custom plate names faster. 
+[Virginia DMV](https://www.dmv.virginia.gov/dmvnet/plate_purchase/select_plate.asp) allows you to check whether custom vanity plates are available for your vehicle. The website is slow, and gets tedious to check multiple custom plates.
+
+This python script automates this process, and will allow you to check the availability of multiple plates at a time.
+
 Just create a txt file ("input.txt") with all the plate names you want to check, and run the script. It will output a file called "output.txt" to show whether the plate is available or not.
 
 ## Getting Started
