@@ -27,7 +27,7 @@ def Request_DMV(name):
         if (name[i] != ' '): # if we have a space in the name, keep the None in our letter array
             letters[i] = name[i]
         i += 1
-    
+
     item_request_body = {
     'TransType': 'INQ',
     'TransID': 'RESINQ',
@@ -81,7 +81,7 @@ def Go_Through_Textfile(file_name):
     num_lines = sum(1 for line in open(file_name,'r'))
     with open(file_name) as f:
         for line in tqdm(f, total=num_lines):
-            checked = Request_DMV(line)
+            checked = Request_DMV(line.rstrip())
             with open("output.txt", "a") as myfile:
                 my_plate = line.rstrip() + " - " + checked + "\n"
                 myfile.write(my_plate)
@@ -89,7 +89,7 @@ def Go_Through_Textfile(file_name):
 
 
 
-my_file = '/Users/awad/Coding/Personal_Projects/licenseplate/input.txt'
+my_file = 'input.txt'
 Go_Through_Textfile(my_file)
 
 
