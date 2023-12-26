@@ -1,5 +1,5 @@
 # VirginiaVanityPlateChecker
-![Screenshot of example output](../assets/exampleOutputs.png)
+![Screenshot of example output](/assets/exampleOutputs.png)
 
 [Virginia DMV](https://www.dmv.virginia.gov/dmvnet/plate_purchase/select_plate.asp) allows you to check whether custom vanity plates are available for your vehicle. But it's very slow to check multiple plates, this script automates the process and allows you to check multiple plates at a time!
 
@@ -28,6 +28,6 @@ python main.py
 ```
 Open output.py to see which ones are available or not.
 
-![Screenshot of website](website.png)
-![Screenshot of website](ripImissHimEveryday.jpg)
+![Screenshot of website](/assets/website.png)
+![Screenshot of website](/assets/ripImissHimEveryday.jpg)
 
