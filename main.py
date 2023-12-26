@@ -5,8 +5,8 @@ from tqdm import tqdm
 
 
 ##### constants
-item_url = 'https://www.dmv.virginia.gov/dmvnet/common/router.asp'
-validation_url = 'https://www.dmv.virginia.gov/dmvnet/plate_purchase/select_plate.asp'
+item_url = 'https://transactions.dmv.virginia.gov/dmvnet/common/router.asp'
+validation_url = 'https://transactions.dmv.virginia.gov/dmvnet/plate_purchase/select_plate.asp'
 available = 'Congratulations.  The message you requested is available.'
 not_available = 'If you have reserved this message or it is on a vehicle you own, click Purchase Plate Now; if not, try a new message.'
 censored = 'Personalized message requested is not available. Please try another message.'
@@ -58,22 +58,22 @@ def Request_DMV(name):
     response = session.post(url=item_url, data=item_request_body,
                             headers={'Referer': form_response.url})
     soup = BeautifulSoup(response.content, features="html.parser")
+    output = "Request failed."
     if(not soup.body):
-        return "Error with the connection or invalid characters supplied in the plate name."
+        output = "Error with the connection or invalid characters supplied in the plate name."
 
     r = soup.body.findAll(text=available)
     if(len(r) > 0):
-        return "Available"
+        output = "Available"
     else:
         r = soup.body.findAll(text=not_available)
         if(len(r) > 0):
-            return "Plate Taken."
+            output =  "Plate Taken."
         else:
             r = soup.body.findAll(text=censored)
             if(len(r) > 0):
-                return "Plate censored."
-            else: 
-                "Request failed."
+                output =  "Plate censored."
+    return output
 
 
 
@@ -85,6 +85,7 @@ def Go_Through_Textfile(file_name):
             with open("output.txt", "a") as myfile:
                 my_plate = line.rstrip() + " - " + checked + "\n"
                 myfile.write(my_plate)
+    print("Output.txt successfully exported.")
 
 
 
